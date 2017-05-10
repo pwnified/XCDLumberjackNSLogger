@@ -2,6 +2,8 @@
 //  Copyright (c) 2015 Cédric Luthi. All rights reserved.
 //
 
+#if (LOGGER_DDLOG)
+
 #import "XCDLumberjackNSLogger.h"
 
 @implementation XCDLumberjackNSLogger
@@ -79,6 +81,7 @@ static void SetThreadNameWithMessage(DDLogMessage *logMessage)
 			@"com.apple.root.user-interactive-qos": @"User Interactive QoS", // QOS_CLASS_USER_INTERACTIVE
 			@"com.apple.root.user-initiated-qos":   @"User Initiated QoS",   // QOS_CLASS_USER_INITIATED
 			@"com.apple.root.default-qos":          @"Default QoS",          // QOS_CLASS_DEFAULT
+			@"com.apple.root.default-qos.overcommit":          @"Default QoS",          // QOS_CLASS_DEFAULT
 			@"com.apple.root.utility-qos":          @"Utility QoS",          // QOS_CLASS_UTILITY
 			@"com.apple.root.background-qos":       @"Background QoS",       // QOS_CLASS_BACKGROUND
 			@"com.apple.main-thread":               @"Main Queue"
@@ -177,3 +180,5 @@ static NSData * MessageAsData(NSString *message)
 	}
 	return nil;
 }
+
+#endif

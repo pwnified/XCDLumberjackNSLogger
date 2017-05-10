@@ -3,7 +3,7 @@
 //
 
 #import <CocoaLumberjack/CocoaLumberjack.h>
-#import <NSLogger/LoggerClient.h>
+#import "LoggerClient.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -60,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @discussion Use the underlying logger if you need fine-grained control. For example, you may want to call `LoggerSetViewerHost(lubmerjackNSLogger.logger, host, port)` if you are in a Bonjour-hostile network. You may also use this property to tweak the logger options with the `LoggerSetOptions` function.
  */
-@property (readonly) Logger *logger;
+@property (atomic, readonly) Logger *logger;
 
 /**
  *  ----------------------------------
@@ -76,7 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  For example, CocoaHTTPServer [defines a context](https://github.com/robbiehanson/CocoaHTTPServer/blob/52b2a64e9cbdb5f09cc915814a5fb68a45dd3707/Core/HTTPLogging.h#L55) of 80. In order to translate it to a `CocoaHTTPServer` tag, use  `lubmerjackNSLogger.tags = @{ @80 : @"CocoaHTTPServer" };`
  */
-@property (copy, nullable) NSDictionary *tags;
+@property (atomic, copy, nullable) NSDictionary *tags;
 
 @end
 
